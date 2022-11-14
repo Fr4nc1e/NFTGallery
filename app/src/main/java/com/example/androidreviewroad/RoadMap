@@ -1,0 +1,7 @@
+/**************My Android Review Plan Roadmap***************
+
+1. Use viewBinding to replace findViewById
+2. RecyclerView(How to use viewBinding in RecyclerView)
+    Show a NFT list
+    Switch LinearLayout to MaterialCardView
+    Use Grid load pictures
