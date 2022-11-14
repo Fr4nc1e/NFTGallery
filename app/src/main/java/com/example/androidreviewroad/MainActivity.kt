@@ -9,6 +9,7 @@ import com.example.androidreviewroad.adapter.NftAdapter
 import com.example.androidreviewroad.databinding.ActivityMainBinding
 import com.example.androidreviewroad.model.NFT
 import com.example.androidreviewroad.viewmodel.NftViewModel
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(NftViewModel::class.java)
         nftList = viewModel.initNft()
         val layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.layoutManager = layoutManager
+        val recyclerView = binding.recyclerView
+        recyclerView.layoutManager = layoutManager
         val adapter = NftAdapter(nftList)
-        binding.recyclerView.adapter = adapter
+        recyclerView.adapter = ScaleInAnimationAdapter(adapter)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
