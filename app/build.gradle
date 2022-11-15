@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
+
+
 android {
     namespace 'com.example.androidreviewroad'
     compileSdk 33
@@ -32,6 +34,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kapt {
+        javacOptions {
+            option("-kapt.use.worker.api=false")
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }

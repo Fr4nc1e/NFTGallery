@@ -1,10 +1,10 @@
 package com.example.androidreviewroad.database
 
-import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.androidreviewroad.Dao.NftDao
+import com.example.androidreviewroad.NftApplication
 import com.example.androidreviewroad.model.NFT
 
 @Database(version = 1, entities = [NFT::class])
@@ -14,22 +14,16 @@ abstract class NftDatabase : RoomDatabase() {
 
     companion object {
 
-        private var instance: NftDatabase? = null
+        @Volatile
+        private var INSTANCE: NftDatabase? = null
 
-        @Synchronized
-        fun getDatabase(context: Context): NftDatabase {
-            instance?.let {
-                return it
-            }
-            return Room.databaseBuilder(
-                context.applicationContext,
-                NftDatabase::class.java,
-                "nft_database"
-            )
-                .build()
-                .apply {
-                    instance = this
+        fun getDatabase(): NftDatabase = INSTANCE ?: synchronized(this) {
+            val instance = INSTANCE ?: Room
+                .databaseBuilder(NftApplication.context, NftDatabase::class.java, "nft_database")
+                .build().also {
+                    INSTANCE = it
                 }
+            instance
         }
     }
 }

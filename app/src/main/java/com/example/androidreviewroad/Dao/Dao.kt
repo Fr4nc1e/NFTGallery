@@ -10,11 +10,14 @@ import com.example.androidreviewroad.model.NFT
 interface NftDao {
 
     @Insert
-    fun insertNft(nft: NFT): Long
+    fun insertNft(nft: NFT)
 
     @Update
     fun updateNft(newNFT: NFT)
 
     @Query("SELECT * FROM NFT")
     fun getAllNft(): List<NFT>
+
+    @Query("SELECT * FROM NFT WHERE id = :id")
+    fun inDatabase(id: Long): List<NFT>
 }
