@@ -50,6 +50,16 @@
                 android:layout_margin="5dp"
                 android:textStyle="bold"/>
 
+            <Button
+                android:id="@+id/nftDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:text="@string/detail"
+                android:textAllCaps="false"/>
+
+
         </LinearLayout>
     </LinearLayout>
 

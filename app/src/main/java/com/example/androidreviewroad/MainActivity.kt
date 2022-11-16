@@ -2,6 +2,7 @@ package com.example.androidreviewroad
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show()
 
         val nftDatabase = NftDatabase.getDatabase()
         val nftList = nftViewModel.initNft(nftDatabase, desList)

@@ -25,5 +25,6 @@ class NftDetail : AppCompatActivity() {
 
         longAnimationDuration = resources.getInteger(android.R.integer.config_longAnimTime)
         CrossFade.crossFade(binding.content, longAnimationDuration)
+        CrossFade.crossFade(binding.nftDetailImage, longAnimationDuration)
     }
 }

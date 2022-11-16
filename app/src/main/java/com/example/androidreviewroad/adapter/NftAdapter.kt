@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ class NftAdapter(private val nftList: List<NFT>) : RecyclerView.Adapter<NftAdapt
         val nftName: TextView = binding.nftName
         val nftPrice: TextView = binding.nftPrice
         val nftArtist: TextView = binding.nftArtist
+        val button: Button = binding.nftDetail
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +30,7 @@ class NftAdapter(private val nftList: List<NFT>) : RecyclerView.Adapter<NftAdapt
             .inflate(LayoutInflater.from(parent.context), parent, false)
 
         val viewHolder = ViewHolder(binding).apply {
-            nftImage.setOnClickListener {
+            button.setOnClickListener {
                 val position = absoluteAdapterPosition
                 val nft = nftList[position]
                 val intent = Intent(parent.context, NftDetail::class.java).apply {
