@@ -4,6 +4,10 @@ import androidx.lifecycle.ViewModel
 import com.example.androidreviewroad.R
 import com.example.androidreviewroad.database.NftDatabase
 import com.example.androidreviewroad.model.NFT
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 class NftViewModel : ViewModel() {
@@ -29,9 +33,12 @@ class NftViewModel : ViewModel() {
                 add(NFT("CRYPTOPUNK #7804", R.drawable.cryptopunk7804_metav_rs_nft, 7560000, "Matt Hall and John Watkinson, Larva Labs’s directors", desList[7]))
                 add(NFT("CRYPTOPUNK #3100", R.drawable.cryptopunk3100_metav_rs_nft, 7510000, "Matt Hall and John Watkinson, Larva Labs’s directors", desList[8]))
             }.forEach {
-                if (nftDao.inDatabase(it.id).isEmpty()) {
-                    nftDao.insertNft(it)
-                }
+                val job0 = Job()
+                CoroutineScope(job0).launch(Dispatchers.Default) {
+                    if (nftDao.inDatabase(it.id).isEmpty()) {
+                        nftDao.insertNft(it)
+                    }
+                }.cancel()
             }
         }
 

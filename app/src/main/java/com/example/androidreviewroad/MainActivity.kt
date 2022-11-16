@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         val nftDatabase = NftDatabase.getDatabase()
         val nftList = nftViewModel.initNft(nftDatabase, desList)
 
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(NftApplication.context)
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = layoutManager
         val adapter = NftAdapter(nftList)

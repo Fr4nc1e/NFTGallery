@@ -15,10 +15,13 @@ class NftDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNftDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val imageId = intent.getIntExtra("imageId", 0)
         val des = intent.getStringExtra("Description")
-        Glide.with(this).load(imageId).into(binding.nftDetailImage)
+        val nftName = intent.getStringExtra("nftName")
+        Glide.with(NftApplication.context).load(imageId).into(binding.nftDetailImage)
         binding.nftDes.text = des
+        binding.nftDetailName.text = nftName
 
         longAnimationDuration = resources.getInteger(android.R.integer.config_longAnimTime)
         CrossFade.crossFade(binding.content, longAnimationDuration)

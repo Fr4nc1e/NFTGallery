@@ -31,9 +31,11 @@ class NftAdapter(private val nftList: List<NFT>) : RecyclerView.Adapter<NftAdapt
             nftImage.setOnClickListener {
                 val position = absoluteAdapterPosition
                 val nft = nftList[position]
-                val intent = Intent(parent.context, NftDetail::class.java)
-                intent.putExtra("imageId", nft.imageId)
-                intent.putExtra("Description", nft.des)
+                val intent = Intent(parent.context, NftDetail::class.java).apply {
+                    putExtra("nftName", nft.name)
+                    putExtra("imageId", nft.imageId)
+                    putExtra("Description", nft.des)
+                }
                 parent.context.startActivity(intent)
             }
         }

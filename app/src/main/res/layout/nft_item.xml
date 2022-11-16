@@ -30,6 +30,7 @@
                 android:id="@+id/nftName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:textStyle="italic|bold" />
 
@@ -37,6 +38,7 @@
                 android:id="@+id/nftPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:textStyle="italic|bold"/>
 
@@ -44,6 +46,7 @@
                 android:id="@+id/nftArtist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:textStyle="bold"/>
 
