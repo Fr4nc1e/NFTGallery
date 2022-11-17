@@ -3,4 +3,10 @@
     <string name="share">Share</string>
     <string name="settings">Settings</string>
     <string name="detail">Detail</string>
+    <string name="account">Account:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="no_account_please_click_here">No account? please click here.</string>
+    <string name="register">Register</string>
+    <string name="phonenum">PhoneNum:</string>
 </resources>

@@ -18,6 +18,6 @@ interface NftDao {
     @Query("SELECT * FROM NFT")
     fun getAllNft(): List<NFT>
 
-    @Query("SELECT * FROM NFT WHERE id = :id")
-    fun inDatabase(id: Long): List<NFT>
+    @Query("SELECT * FROM NFT WHERE name = :name")
+    fun inDatabase(name: String): List<NFT>
 }

@@ -1,6 +1,7 @@
 package com.example.androidreviewroad.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.androidreviewroad.R
 import com.example.androidreviewroad.database.NftDatabase
 import com.example.androidreviewroad.model.NFT
@@ -21,7 +22,7 @@ class NftViewModel : ViewModel() {
     fun initNft(database: NftDatabase, desList: List<String>): ArrayList<NFT> {
         val nftDao = database.nftDao()
 
-        thread {
+        viewModelScope.launch(Dispatchers.Default) {
             nftList.apply {
                 add(NFT("THE MERGE", R.drawable.the_merge_pak_nft_metav_rs__715x461_png, 91800000, "Pak", desList[0]))
                 add(NFT("BEEPLE COLLECTION _ EVERY DAY: THE FIRST FIVE THOUSAND DAYS", R.drawable.the_first_five_thousand_day_beeple_metav_rs_nft_715x715, 69346250, "Mike Winkelmann aka Beeple", desList[1]))
@@ -33,12 +34,9 @@ class NftViewModel : ViewModel() {
                 add(NFT("CRYPTOPUNK #7804", R.drawable.cryptopunk7804_metav_rs_nft, 7560000, "Matt Hall and John Watkinson, Larva Labs’s directors", desList[7]))
                 add(NFT("CRYPTOPUNK #3100", R.drawable.cryptopunk3100_metav_rs_nft, 7510000, "Matt Hall and John Watkinson, Larva Labs’s directors", desList[8]))
             }.forEach {
-                val job0 = Job()
-                CoroutineScope(job0).launch(Dispatchers.Default) {
-                    if (nftDao.inDatabase(it.id).isEmpty()) {
-                        nftDao.insertNft(it)
-                    }
-                }.cancel()
+                if (nftDao.inDatabase(it.name).isEmpty()) {
+                    nftDao.insertNft(it)
+                }
             }
         }
 

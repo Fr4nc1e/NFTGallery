@@ -17,4 +17,10 @@ interface RegisterDao {
 
     @Query("SELECT * FROM Register")
     fun getAllRegister(): List<Register>
+
+    @Query("SELECT * FROM Register WHERE account = :account")
+    fun inRegisterDatabase(account: Int): List<Register>
+
+    @Query("SELECT * FROM Register WHERE account = :account and passWords = :passWd")
+    fun inLoginDatabase(account: Int, passWd: Int): List<Register>
 }

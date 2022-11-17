@@ -1,9 +1,8 @@
 package com.example.androidreviewroad.viewmodel
 
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.CoroutineScope
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class NftDetailViewModel : ViewModel() {
@@ -15,8 +14,7 @@ class NftDetailViewModel : ViewModel() {
     }
 
     fun initDesList(): List<String> {
-        val job0 = Job()
-        CoroutineScope(job0).launch(Dispatchers.Default) {
+        viewModelScope.launch(Dispatchers.Default) {
             desList.apply {
                 add("Beeple’s artwork “Every day” was before the end of 2021 the most expensive NFT art sold, until the artist Pak decides otherwise. The artwork “The Merge” is an NFT sold for the outrageous sum of \$ 91.8 Million via Nifty Gateway. However, the difference lies upon the fact that this NFT was not bought by one, but rather 29,983 people, so “the Merge” sold out being split into 312,686 coins distributed to buyers.")
                 add("This Beeple’s artwork was the most expensive sold NFT-art until the end of 2021. “Everyday” NFT is a painting that collects all 5,000 images he drew over 5,000 days in a row. This unique piece was auctioned by the famous Christie house for the tidy sum of \$69 million. This NFT was bought by Vignesh Sundaresan who forestalled Justin Sun, founder of Tron.")
