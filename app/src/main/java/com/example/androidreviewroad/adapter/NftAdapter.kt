@@ -9,9 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androidreviewroad.NftDetail
 import com.example.androidreviewroad.databinding.NftItemBinding
 import com.example.androidreviewroad.model.NFT
+import com.example.androidreviewroad.ui.NftDetail
 
 class NftAdapter(private val nftList: List<NFT>) : RecyclerView.Adapter<NftAdapter.ViewHolder>() {
 

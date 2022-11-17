@@ -1,4 +1,4 @@
-package com.example.androidreviewroad
+package com.example.androidreviewroad.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidreviewroad.NftApplication
+import com.example.androidreviewroad.R
 import com.example.androidreviewroad.adapter.NftAdapter
 import com.example.androidreviewroad.database.NftDatabase
 import com.example.androidreviewroad.databinding.ActivityMainBinding

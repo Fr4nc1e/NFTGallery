@@ -1,8 +1,9 @@
-package com.example.androidreviewroad
+package com.example.androidreviewroad.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.androidreviewroad.NftApplication
 import com.example.androidreviewroad.animation.CrossFade
 import com.example.androidreviewroad.databinding.ActivityNftDetailBinding
 
