@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
     id 'kotlin-kapt'
 }
 
@@ -24,12 +25,23 @@ android {
         viewBinding true
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'Dengdev'
+            keyPassword '147258369'
+            storeFile file('C:\\Users\\Deng\\Deng\\Deng.jks')
+            storePassword '147258369'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -47,6 +59,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.core:core-ktx:1.9.0'
